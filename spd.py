@@ -21,13 +21,13 @@ def millisec(timeStr):
 
 
 k = str(pipeline(
-    "Desktop/projects_python/tran_diar/audio.mp3")).split('\n')
+    "audio.mp3")).split('\n')
 
 del pipeline
 gc.collect()
 
 audio = AudioSegment.from_mp3(
-    "Desktop/projects_python/tran_diar/audio.mp3")
+    "audio.mp3")
 audio = audio.set_frame_rate(16000)
 
 device = torch.device('cuda')
