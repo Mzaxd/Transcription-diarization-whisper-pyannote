@@ -36,14 +36,14 @@ for l in range(len(k)):
 
     j = k[l].split(" ")
     start = int(millisec(j[1]))
-    end = int(millisec(j[3]))
+    end = int(millisec(j[4]))
 
     tr = read(audio[start:end])
 
     result = model.transcribe(tr, fp16=False)
 
-    f = open("Desktop/projects_python/tran_diar/tr_file.txt", "a")
-    f.write(f'\n[ {j[1]} -- {j[3]} ] {j[6]} : {result["text"]}')
+    f = open("tr_file.txt", "a")
+    f.write(f'\n[ {j[1]} -- {j[4]} ] {j[6]} : {result["text"]}')
     f.close()
 
     del f
