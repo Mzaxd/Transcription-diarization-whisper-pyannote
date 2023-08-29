@@ -3,6 +3,7 @@ from pydub import AudioSegment
 import whisper
 import numpy as np
 import gc
+import torch
 
 pipeline = Pipeline.from_pretrained(
     "pyannote/speaker-diarization", use_auth_token="register to huggingface website to get the access token")
@@ -28,7 +29,8 @@ audio = AudioSegment.from_mp3(
     "Desktop/projects_python/tran_diar/audio.mp3")
 audio = audio.set_frame_rate(16000)
 
-model = whisper.load_model("small.en")
+device = torch.device('cuda')
+model = whisper.load_model("small.en", device=device)
 
 for l in range(len(k)):
 
